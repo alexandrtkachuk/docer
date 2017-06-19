@@ -1,0 +1,18 @@
+Tor
+===
+
+Container for Tor: https://www.torproject.org/
+
+Check it out on Docker Hub: https://hub.docker.com/r/bwstitt/tor/
+
+
+Todo
+====
+
+* document how to run with your own config
+* document how to run arm inside the container
+* document how to run a proxy for another container
+* document how to run a hidden service connected to another container
+
+
+#git https://github.com/WyseNynja/dockerfile-tor
