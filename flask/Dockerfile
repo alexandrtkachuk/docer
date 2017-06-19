@@ -1,5 +1,5 @@
 # Version: 0.0.1
-FROM python:alpine
+FROM ubuntu
 EXPOSE 5000
 COPY hello.py /hello.py
 
@@ -11,7 +11,16 @@ COPY hello.py /hello.py
 #ONBUILD COPY . /usr/src/app
 
 #
+RUN apt update
+RUN apt install -y python
+RUN apt-get install -y ssh
+RUN apt install -y wget
+RUN apt-get install -y php
+RUN apt-get install -y vim
+RUN wget 'https://bootstrap.pypa.io/get-pip.py'
+RUN python get-pip.py
 RUN pip install Flask
+
 
 CMD ["python", "hello.py"]
 
