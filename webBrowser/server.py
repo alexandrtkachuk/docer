@@ -40,26 +40,27 @@ def loadSite(url, js, waitId):
     browser.set_page_load_timeout(60*3)
     #TO DO: создать exeption чтоб браузер закрывался
     try:
-        browser.get(url)
-    except Exception as ex:
-        print('Exeption get url:', ex)
+        browser.get(url) 
 
-    if(js != False):
-        print("run js")
-        browser.execute_script(js)
+        if(js != False):
+            print("run js")
+            browser.execute_script(js)
     #print(browser.page_source)
     #infotab
-    if(waitId != False ):
-        print("wait")
-        try:
-            #может такого и не будет 
-            WebDriverWait(browser, 30).until(EC.presence_of_element_located((By.ID, waitId )))
-        except Exception as ex:
-            print("not found " + waitId)
+        if(waitId != False ):
+            print("wait")
+            try:
+                #может такого и не будет 
+                WebDriverWait(browser, 30).until(EC.presence_of_element_located((By.ID, waitId )))
+            except Exception as ex:
+                print("not found " + waitId)
 
-    newUrl = browser.current_url
-    print("we now:")
-    print(browser.current_url)
+        newUrl = browser.current_url
+        print("we now:")
+        print(browser.current_url)
+
+    except Exception as ex:
+        print('Exeption in load:', ex)
 
     html =  browser.page_source
     #
