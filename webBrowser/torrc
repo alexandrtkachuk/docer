@@ -1,0 +1,20 @@
+# no exits
+ExitPolicy reject *:*
+
+# logs are easy to read with `docker logs`
+Log notice stdout
+
+# tor-arm settings
+
+########################
+ControlPort 0.0.0.0:9051
+CookieAuthentication 1
+#
+#pass my_password
+#create new for example:
+#tor --hash-password "my_password" 
+HashedControlPassword 16:E600ADC1B52C80BB6022A0E999A7734571A451EB6AE50FED489B72E3DF
+####################################
+DisableDebuggerAttachment 0
+
+SocksBindAddress 0.0.0.0:9050
